@@ -1,11 +1,11 @@
 # Required:
--vs code
--Spwn language
+- vs code
+- Spwn language
 
 # Installation:
--In your spwn project place the downloaded folder inside your library folder, if you dont have one create one.
+   In your spwn project place the downloaded folder inside your library folder, if you dont have one create one.
   
 # Usage:
 Maps:
--buildMap(map<number>, [xPos])
+- buildMap(map<number>, [xPos])
     
