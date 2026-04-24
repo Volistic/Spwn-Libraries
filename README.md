@@ -5,3 +5,7 @@ Required:
 Installation:
   In your spwn project place the downloaded folder inside your library folder, if you dont have one create one.
   
+Usage:
+  Maps:
+    -buildMap(map<number>, [xPos])
+    
