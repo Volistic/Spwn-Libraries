@@ -1,5 +1,5 @@
 Required:
-  -vs code
+  -vs code,
   -Spwn language
 
 Installation:
