@@ -1,0 +1,115 @@
+#[desc("Lets you pick from a variety of maps templates to start with")]
+
+extract $
+extract obj_props
+
+let buildMap = (array: @array, startX: @number = 165) {
+    for row_i in 0..array.length {
+        for col_i in 0..array[row_i].length {
+            let val = array[row_i][col_i]
+            let x = startX + 30 * col_i
+            let y = 15 + 30 * row_i
+
+            if val == 1 { // block
+                $.add(obj {
+                    OBJ_ID: 1,
+                    X: x,
+                    Y: y,
+                    SCALING: 1,
+                })
+            } else if val == 2 { //spike 0 degrees
+                $.add(obj {
+                    OBJ_ID: 8,
+                    X: x,
+                    Y: y,
+                    SCALING: 1,
+                })
+            } else if val == 3 { // spike 180 degrees
+                $.add(obj {
+                    OBJ_ID: 8,
+                    X: x,
+                    Y: y,
+                    SCALING: 1,
+                    ROTATION: 180,
+                })
+            } else if val == 4 { // spike 90 degrees
+                $.add(obj {
+                    OBJ_ID: 8,
+                    X: x,
+                    Y: y,
+                    SCALING: 1,
+                    ROTATION: 90,
+                })
+            } else if val == 5 { //jump orb
+                $.add(obj {
+                    OBJ_ID: 36,
+                    X: x,
+                    Y: y,
+                    SCALING: 1,
+                })
+            } else if val == 6 { // mini spike
+                $.add(obj {
+                    OBJ_ID: 39,
+                    X: x,
+                    Y: y - 8,
+                    SCALING: 1,
+                })
+            } else if val == 7 { // half block up
+                $.add(obj {
+                    OBJ_ID: 40,
+                    X: x,
+                    Y: y + 8,
+                    SCALING: 1,
+                })
+            } else if val == 8 { // half block down
+                $.add(obj {
+                    OBJ_ID: 40,
+                    X: x,
+                    Y: y - 8,
+                    SCALING: 1,
+                })
+            } else if val == 9 { // gravity orb
+                $.add(obj {
+                    OBJ_ID: 84,
+                    X: x + 8,
+                    Y: y,
+                    SCALING: 1,
+                })
+            }
+        }
+    }
+}
+
+let map1 = [
+    [1,1,1,1,1,2,2,2,2,2,2,2,2], // bottom
+    [0,0,0,0,0,0,0,1,1,1,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,3,0,3,0,0,0,0,0,1,7,1,0],
+    [1,1,1,1,1,1,1,1,0,0,0,6,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0], // top
+]
+let map2 = [
+    [1,1,1,2,2,2,2,2,0,0,2,2,6], // bottom
+    [0,0,0,0,0,0,0,0,8,0,0,0,0],
+    [0,0,5,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0], // top
+]
+
+let map3 = [
+    [1,2,2,0,1,2,2,2,2,2,2,2,2,2,2],// bottom
+    [0,0,0,7,1,0,0,0,0,0,0,0,0],
+    [0,0,0,0,6,0,0,0,7,7,0,0,0],
+    [0,0,0,0,0,0,0,0,0,6,0,0,9],
+    [0,0,0,0,0,0,0,0,0,0,0,0,9],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0], // top
+]   
+
+return {
+    buildMap, map1, map2, map3
+}
+
