@@ -1,0 +1,72 @@
+extract $
+extract obj_props
+
+//Manually enable P1 in Advanced follow trigger, and Multi Activate for the Purple dash orb
+
+let snake = (group: @group = 1002g, color: @color = 999c, target: @group = 1001g) { #[desc example("usage snake(group, color, target) or just snake() for default")]
+    add(obj { // Advanced follow trigger
+        OBJ_ID: 3016,
+        X: 15,
+        Y: 615,
+        TARGET: group,  // group to move
+        X_MOD: 1,         // x speed multiplier
+        Y_MOD: 1,         // y speed multiplier
+        DURATION: 9999,    // how long it follows
+        SPAWN_TRIGGERED: true,
+        MULTI_TRIGGER: true,
+    })
+    // color wave portal
+    add(obj {
+        OBJ_ID: 899,
+        X: 15,
+        Y: 675,
+        TARGET_COLOR: color,
+        COLOR:color, 
+        TRIGGER_RED: 255, 
+        TRIGGER_GREEN: 0, 
+        TRIGGER_BLUE: 0,
+    })
+    // alpha trigger 
+    add(obj {
+        OBJ_ID: 1007,
+        X: 15,
+        Y: 645,
+        OPACITY: 0,
+        TARGET: group,
+        SPAWN_TRIGGERED: true,
+
+    })
+    // wave portal
+    add(obj {
+        OBJ_ID: 660,
+        X: 105,
+        Y: 615,
+        COLOR: color,
+    })
+    // purple dash orb
+    add(obj {
+        OBJ_ID: 1751,
+        X: 75,
+        Y: 615,
+        GROUPS: group,
+    })
+    // spawn trigger
+        add(obj { 
+        OBJ_ID: 1268,
+        X: 105,
+        Y: 675,
+        TARGET: target,
+    })
+    //stop trigger
+        add(obj {
+        OBJ_ID: 1616,
+        X: 105,
+        Y: 705,
+        TARGET: target,
+    })
+
+}
+
+return {
+    snake
+}
