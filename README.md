@@ -9,6 +9,6 @@ In your spwn project place the downloaded folder inside your library folder, if 
 Maps:
 - buildMap(map<[number]>, [xPos])
 # Usage
-- Gamemodes:
+Gamemodes:
 - snake(<[Group]>, <[Color]>, <[Target]>) 
     
